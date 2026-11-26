@@ -1,11 +1,13 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import os
+from dotenv import load_dotenv
 
-# 🔐 YOUR GMAIL CREDENTIALS (use App Password, not normal password)
-SENDER_EMAIL = "lostfounder22@gmail.com"
-APP_PASSWORD = "mllm xgog pbhq wagv"
+load_dotenv()
 
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+APP_PASSWORD = os.getenv("APP_PASSWORD")
 
 def send_match_email(receiver_email, item_name, similarity):
     try:
